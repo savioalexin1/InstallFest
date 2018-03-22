@@ -1,5 +1,5 @@
 #!/bin/bash
-UP=$(pgrep mysqld | wc -l);
+UP=$(sshpass -p $2 ssh -o StrictHostKeyChecking=no -l $1 $0 "pgrep mysqld | wc -l");
 echo $UP
 if [ "$UP" -ge 1 ];
 then
